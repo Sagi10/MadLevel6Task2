@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.lalee.madlevel6task2.model.Movie
-import com.lalee.madlevel6task2.model.PopularMovies
+import com.lalee.madlevel6task2.model.MoviesList
 import com.lalee.madlevel6task2.movieApiService.MovieApi
 import com.lalee.madlevel6task2.movieApiService.MovieApiService
 import retrofit2.Call
@@ -17,9 +17,9 @@ class MovieRepository {
 
     private val movieApiService: MovieApiService = MovieApi.createAPI()
 
-    private val _movies: MutableLiveData<Movie> = MutableLiveData()
+    private val _movies: MutableLiveData<Call<MoviesList>> = MutableLiveData()
 
-    val movies : LiveData<Movie> get() = _movies
+    val movies : LiveData<Call<MoviesList>> get() = _movies
 
     suspend fun getPopularMovies(apiKey: String){
         try {

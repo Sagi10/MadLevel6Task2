@@ -2,8 +2,8 @@ package com.lalee.madlevel6task2.model
 
 import com.google.gson.annotations.SerializedName
 
-data class PopularMovies(
-    val popularMovies: List<Movie>
+data class MoviesList(
+    val movieList: List<Movie>
 )
 
 data class Movie(

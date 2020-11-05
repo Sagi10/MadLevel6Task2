@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.lalee.madlevel6task2.model.Movie
-import com.lalee.madlevel6task2.model.PopularMovies
+import com.lalee.madlevel6task2.model.MoviesList
 import com.lalee.madlevel6task2.repository.MovieRepository
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -19,7 +19,7 @@ class MovieViewModel(application: Application): AndroidViewModel(application) {
     private val _error = MutableLiveData<String>()
     private val _succes = MutableLiveData<Boolean>()
 
-    val movies: LiveData<Movie> = movieRepository.movies
+    val movies: LiveData<Call<MoviesList>> = movieRepository.movies
     val error = _error
     val succes = _succes
 
