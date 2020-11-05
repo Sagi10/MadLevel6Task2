@@ -68,5 +68,14 @@
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+        <TextView
+            android:id="@+id/tv_movie_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="rating"
+            app:layout_constraintStart_toStartOf="@+id/tv_movie_releasedate"
+            app:layout_constraintTop_toBottomOf="@+id/tv_movie_releasedate" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

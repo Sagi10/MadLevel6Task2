@@ -9,5 +9,5 @@ data class Movie(
     @SerializedName("vote_average") var rating: Int,
     @SerializedName("overview")var overview: String,
     @SerializedName("backdrop_path") var imageBackdrop: String,
-    @SerializedName("poster_path") var imagePost: String
+    @SerializedName("poster_path") var imagePoster: String
 )

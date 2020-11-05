@@ -42,9 +42,13 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_movies_overview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        tools:listitem="@layout/item_movie"/>
+<!--    app:layoutManager="GridLayoutManager"-->
+<!--    app:spanCount="2"-->
 
 </LinearLayout>
 
