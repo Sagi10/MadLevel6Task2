@@ -23,7 +23,6 @@ class MovieApi {
                 .build()
 
             return movieApi.create(MovieApiService::class.java)
-
         }
     }
 }

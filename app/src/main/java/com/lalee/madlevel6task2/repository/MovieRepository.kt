@@ -5,9 +5,13 @@ import android.nfc.Tag
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.lalee.madlevel6task2.model.Movie
+import com.lalee.madlevel6task2.model.PopularMovies
 import com.lalee.madlevel6task2.movieApiService.MovieApi
 import com.lalee.madlevel6task2.movieApiService.MovieApiService
+import retrofit2.Call
 
 class MovieRepository {
 
@@ -17,11 +21,13 @@ class MovieRepository {
 
     val movies : LiveData<Movie> get() = _movies
 
-    suspend fun getPopulairMovies(){
+    suspend fun getPopularMovies(apiKey: String){
         try {
+            //TODO fix this. it returns null
+            val movieResult = movieApiService.getPopularMovies(apiKey)
 
-            val movieResult = movieApiService.getPopulairMovies()
             _movies.value = movieResult
+            Log.d(TAG, "DIT IS DE RESULT: $movieResult")
 
         } catch (error: Throwable){
             throw MovieError("NIET GELUKT OM MOVIE OP TE HALEN", error)
