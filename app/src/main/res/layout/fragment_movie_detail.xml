@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MovieDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/iv_movie_backdrop"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/iv_movie_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_movie_backdrop"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_movie_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="TextView"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/iv_movie_poster"
+            app:layout_constraintTop_toTopOf="@+id/iv_movie_poster" />
+
+        <TextView
+            android:id="@+id/tv_movie_releasedate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/tv_movie_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_movie_title" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="overview"
+            app:layout_constraintStart_toStartOf="@+id/iv_movie_poster"
+            app:layout_constraintTop_toBottomOf="@+id/iv_movie_poster" />
+
+        <TextView
+            android:id="@+id/tv_movie_plot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Hier komt text"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
