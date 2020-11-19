@@ -11,5 +11,5 @@ interface MovieApiService {
 
     //TODO find the endpoint that you can insert popular movies with year
     @GET("3/movie/popular")
-    suspend fun getPopularMovies(@Query("api_key") apiKey: String) : Call<MoviesList>
+    fun getPopularMovies(@Query("api_key") apiKey: String) : Call<MoviesList>
 }

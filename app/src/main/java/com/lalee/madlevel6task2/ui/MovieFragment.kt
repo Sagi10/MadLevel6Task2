@@ -16,13 +16,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lalee.madlevel6task2.R
 import com.lalee.madlevel6task2.adapter.MovieAdapter
 import com.lalee.madlevel6task2.model.Movie
+import com.lalee.madlevel6task2.model.MoviesList
 import com.lalee.madlevel6task2.movieApiService.MovieApi
 import com.lalee.madlevel6task2.movieApiService.MovieApiService
 import com.lalee.madlevel6task2.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.fragment_movie.*
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -54,10 +55,25 @@ class MovieFragment : Fragment() {
         }
         rv_movies_overview.adapter = movieAdapter
 
-        observeMovieResults()
+        //observeMovieResults()
     }
 
-    private fun observeMovieResults() {
-
-    }
+//    private fun observeMovieResults() {
+//        movieViewModel.movies.observe(viewLifecycleOwner, {
+//            Toast.makeText(activity, "DIT: ${it.movieList}", Toast.LENGTH_SHORT).show()
+//
+////            it.enqueue(object : Callback<MoviesList> {
+////                override fun onResponse(call: Call<MoviesList>, response: Response<MoviesList>) {
+////                    if (response.isSuccessful) {
+////
+////                    }
+////                }
+////
+////                override fun onFailure(call: Call<MoviesList>, t: Throwable) {
+////                    Log.e(TAG, "DIT IS DE ERROR ${t.message}")
+////                    Toast.makeText(activity, "ERROR: ${t.message}", Toast.LENGTH_SHORT).show()
+////                }
+////            })
+//        })
+//    }
 }
