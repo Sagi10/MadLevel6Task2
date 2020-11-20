@@ -19,28 +19,27 @@ class MovieRepository {
 
     private val movieApiService: MovieApiService = MovieApi.createAPI()
 
-    private val _movies: MutableLiveData<Call<MoviesList>> = MutableLiveData()
+    private var _movies: MutableLiveData<MoviesList> = MutableLiveData()
 
-    val movies : LiveData<Call<MoviesList>> get() = _movies
+    val movies: LiveData<MoviesList> get() = _movies
 
-    fun getPopularMovies(apiKey: String){
+    fun getPopularMovies(apiKey: String) {
         try {
 
             val movieResult = movieApiService.getPopularMovies(apiKey)
 
-            movieResult.enqueue(object: Callback<MoviesList>{
+            movieResult.enqueue(object : Callback<MoviesList> {
                 override fun onResponse(call: Call<MoviesList>, response: Response<MoviesList>) {
 
-
+                    _movies.value = response.body()
                     Log.d(TAG, "DIT IS DE RESULT: ${response.body().toString()}}")
                 }
 
                 override fun onFailure(call: Call<MoviesList>, t: Throwable) {
                     Log.e(TAG, "ER IS EEN ERROR: ${t.message}}")
-
                 }
             })
-        } catch (error: Throwable){
+        } catch (error: Throwable) {
             throw MovieError("NIET GELUKT OM MOVIE OP TE HALEN", error)
         }
     }

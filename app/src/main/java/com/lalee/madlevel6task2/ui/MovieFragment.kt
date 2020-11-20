@@ -55,25 +55,19 @@ class MovieFragment : Fragment() {
         }
         rv_movies_overview.adapter = movieAdapter
 
-        //observeMovieResults()
+        observeMovieResults()
     }
 
-//    private fun observeMovieResults() {
-//        movieViewModel.movies.observe(viewLifecycleOwner, {
-//            Toast.makeText(activity, "DIT: ${it.movieList}", Toast.LENGTH_SHORT).show()
-//
-////            it.enqueue(object : Callback<MoviesList> {
-////                override fun onResponse(call: Call<MoviesList>, response: Response<MoviesList>) {
-////                    if (response.isSuccessful) {
-////
-////                    }
-////                }
-////
-////                override fun onFailure(call: Call<MoviesList>, t: Throwable) {
-////                    Log.e(TAG, "DIT IS DE ERROR ${t.message}")
-////                    Toast.makeText(activity, "ERROR: ${t.message}", Toast.LENGTH_SHORT).show()
-////                }
-////            })
-//        })
-//    }
+    private fun observeMovieResults() {
+        movieViewModel.movies.observe(viewLifecycleOwner, {
+            this@MovieFragment.movies.clear()
+            this@MovieFragment.movies.addAll(it.movieList)
+            movieAdapter.notifyDataSetChanged()
+        })
+
+        movieViewModel.error.observe(viewLifecycleOwner, {
+            Toast.makeText(activity, "ERROR: $it", Toast.LENGTH_SHORT).show()
+            Log.e(TAG, "ERROR: $it")
+        })
+    }
 }

@@ -19,7 +19,7 @@ class MovieViewModel(application: Application): AndroidViewModel(application) {
     private val _error = MutableLiveData<String>()
     private val _succes = MutableLiveData<Boolean>()
 
-    val movies: LiveData<Call<MoviesList>> = movieRepository.movies
+    val movies: LiveData<MoviesList> = movieRepository.movies
     val error = _error
     val succes = _succes
 

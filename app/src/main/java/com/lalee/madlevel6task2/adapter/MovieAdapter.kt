@@ -32,6 +32,8 @@ class MovieAdapter(private val movies: List<Movie>) :
         fun dataBind(movie: Movie) {
             Glide.with(itemView.context)
                 .load("https://image.tmdb.org/t/p/w300${movie.imagePoster}")
+                .into(itemView.iv_item_movie_overview)
+
         }
     }
 }
