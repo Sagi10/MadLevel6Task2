@@ -10,7 +10,7 @@ import com.lalee.madlevel6task2.R
 import com.lalee.madlevel6task2.model.Movie
 import kotlinx.android.synthetic.main.item_movie.view.*
 
-class MovieAdapter(private val movies: List<Movie>) :
+class MovieAdapter(private val movies: List<Movie>, private val onClick: (Movie) -> Unit) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieAdapter.ViewHolder {
         return ViewHolder(
@@ -19,7 +19,7 @@ class MovieAdapter(private val movies: List<Movie>) :
     }
 
     override fun onBindViewHolder(holder: MovieAdapter.ViewHolder, position: Int) {
-        holder.dataBind(movies[position])
+        holder.dataBind(movies[position], position + 1)
     }
 
     override fun getItemCount(): Int {
@@ -28,12 +28,19 @@ class MovieAdapter(private val movies: List<Movie>) :
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+        init {
+            itemView.setOnClickListener {
+                onClick(movies[adapterPosition])
+            }
+        }
+
         @SuppressLint("CheckResult")
-        fun dataBind(movie: Movie) {
+        fun dataBind(movie: Movie, position: Int) {
             Glide.with(itemView.context)
                 .load("https://image.tmdb.org/t/p/w300${movie.imagePoster}")
                 .into(itemView.iv_item_movie_overview)
-
+            itemView.tv_item_number.text = String.format("%s.", position.toString())
         }
+
     }
 }

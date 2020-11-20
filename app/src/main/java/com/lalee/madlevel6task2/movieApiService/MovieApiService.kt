@@ -1,16 +1,22 @@
 package com.lalee.madlevel6task2.movieApiService
 
+import android.provider.Settings.Global.getString
 import androidx.lifecycle.LiveData
+import com.lalee.madlevel6task2.R
 import com.lalee.madlevel6task2.model.Movie
 import com.lalee.madlevel6task2.model.MoviesList
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 
 interface MovieApiService {
 
-    //TODO find the endpoint that you can insert popular movies with year
-    @GET("3/movie/popular")
-    fun getPopularMovies(@Query("api_key") apiKey: String) : Call<MoviesList>
+    //TODO make API_KEY secret
+    @GET("3/discover/movie?api_key=ea251d7a3a70747d5d39dee37d4f9a55&sort_by=popularity.desc&include_adult=false&include_video=false")
+    fun getPopularMovies(
+//        @Query("api_key") apiKey: String,
+        @Query("primary_release_year") releaseYear: String
+    ): Call<MoviesList>
 }

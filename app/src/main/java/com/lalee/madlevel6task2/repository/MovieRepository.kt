@@ -23,10 +23,10 @@ class MovieRepository {
 
     val movies: LiveData<MoviesList> get() = _movies
 
-    fun getPopularMovies(apiKey: String) {
+    fun getPopularMovies(releaseYear: String) {
         try {
 
-            val movieResult = movieApiService.getPopularMovies(apiKey)
+            val movieResult = movieApiService.getPopularMovies(releaseYear)
 
             movieResult.enqueue(object : Callback<MoviesList> {
                 override fun onResponse(call: Call<MoviesList>, response: Response<MoviesList>) {
@@ -39,8 +39,10 @@ class MovieRepository {
                     Log.e(TAG, "ER IS EEN ERROR: ${t.message}}")
                 }
             })
+
         } catch (error: Throwable) {
-            throw MovieError("NIET GELUKT OM MOVIE OP TE HALEN", error)
+            Log.e(TAG, "REPO ERROR: ${error.message}")
+            //throw MovieError("NIET GELUKT OM MOVIE OP TE HALEN", error)
         }
     }
 

@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/iv_movie_poster"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,9 +32,9 @@
 
         <TextView
             android:id="@+id/tv_movie_title"
-            android:layout_width="wrap_content"
+            android:layout_width="215dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:text="TextView"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -45,7 +45,7 @@
             android:id="@+id/tv_movie_releasedate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:text="TextView"
             app:layout_constraintStart_toStartOf="@+id/tv_movie_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_movie_title" />
@@ -56,14 +56,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             android:text="overview"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/iv_movie_poster"
             app:layout_constraintTop_toBottomOf="@+id/iv_movie_poster" />
 
         <TextView
             android:id="@+id/tv_movie_plot"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_margin="20dp"
             android:text="Hier komt text"
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />

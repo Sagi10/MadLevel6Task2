@@ -19,12 +19,10 @@ class MovieApi {
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build()
 
-            val gson = GsonBuilder().setPrettyPrinting().create()
-
             val movieApi = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
             return movieApi.create(MovieApiService::class.java)
