@@ -42,7 +42,7 @@ class MovieRepository {
 
         } catch (error: Throwable) {
             Log.e(TAG, "REPO ERROR: ${error.message}")
-            //throw MovieError("NIET GELUKT OM MOVIE OP TE HALEN", error)
+            throw MovieError("NIET GELUKT OM MOVIE OP TE HALEN", error)
         }
     }
 

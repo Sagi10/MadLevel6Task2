@@ -14,7 +14,6 @@ import retrofit2.http.Query
 
 interface MovieApiService {
 
-    //TODO make API_KEY secret
     @GET("3/discover/movie?api_key=" + BuildConfig.MOVIE_API_KEY + "&sort_by=popularity.desc&include_adult=false&include_video=false")
     fun getPopularMovies(
         @Query("primary_release_year") releaseYear: String
